@@ -1,1 +1,16 @@
-.idea
+### Directories ###
+bower_components
+node_modules
+
+###Extensions###
+.mo
+.pot
+
+###Files###
+npm-debug.log
+
+###IntelliJ###
+*.iml
+
+###Sensitive files###
+.idea/
