@@ -18,5 +18,36 @@
 </head>
 <body>
 
+    <div class="container" ng-controller="TicketList">
+        <div class="row">
+            <div class="col col-xs-12">
+                <table class="table table-hover">
+                    <thead>
+                        <th>Title</th>
+                        <th>url</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>type</th>
+                    </thead>
+
+                    <tbody>
+                        <tr ng-repeat="ticket in ticketList">
+                            <td>{{ticket.title}}</td>
+                            <td><a href="{{ticket.auctionUrl}}">link</a></td>
+                            <td>{{ticket.description}}</td>
+                            <td>{{ticket.price}}</td>
+                            <td>{{ticket.type}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
 </body>
 </html>
