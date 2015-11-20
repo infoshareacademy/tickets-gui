@@ -5,6 +5,8 @@
     var app = angular.module('tickets', []);
 
     app.controller('TickietsController', function ($scope, $http) {
+
+        //http://localhost:8080/tickets-filter/app_dev.php/
         $http.get('null/data.json')
             .then(function (response) {
                 var tickietClear = [];
@@ -24,12 +26,8 @@
         var cleanString = function (string) {
             var temp = string;
             while (1) {
-                // remove meta tags
-                if (temp.indexOf('<!DOCTYPE') >= 0 && temp.indexOf('>') >= 0 && temp.indexOf('>')>temp.indexOf('<!DOCTYPE')) {
-                    temp = temp.replace(temp.substring(temp.indexOf('<!DOCTYPE'),temp.indexOf('>')+1), '');
-                }
-                // remove comment's tag
-                else if(temp.indexOf('<!--') >= 0 && temp.indexOf('-->') >= 0 && temp.indexOf('-->')>temp.indexOf('<!--')) {
+                // remove comment's tags
+                if(temp.indexOf('<!--') >= 0 && temp.indexOf('-->') >= 0 && temp.indexOf('-->')>temp.indexOf('<!--')) {
                     temp = temp.replace(temp.substring(temp.indexOf('<!--'),temp.indexOf('-->')+3), '');
                 }
                 // remove all html tags
