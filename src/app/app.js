@@ -1,48 +1,56 @@
 /**
  * Created by paoolskoolsky on 17.11.15.
  */
-(function () {
+(function(){
     var app = angular.module('tickets', []);
 
-    app.controller('TicketList', function ($scope, $http) {
-        var getTickets = function () {
-            //
-            var tickietClear = [];
-            $http.get('null/data.json')
+    app.controller('TickietsController', function ($scope, $http) {
+        $http.get('null/data.json')
             .then(function (response) {
+                var tickietClear = [];
                 angular.forEach(response.data, function(ticket) {
                     ticket.description = cleanString(ticket.description);
                     tickietClear.push(ticket);
                 });
-                $scope.ticketList = tickietClear;
-            })
+                $scope.tickietsList = tickietClear;
+
+            });
+
+        $scope.reorder = function (field) {
+            $scope.desc = $scope.sortingField === field ? !$scope.desc : false;
+            $scope.sortingField = field;
         };
-
-        var url = 'http://localhost:8080/tickets-filter/app_dev.php/';
-
 
         var cleanString = function (string) {
             var temp = string;
             while (1) {
-                if(temp.indexOf('<') >= 0 && temp.indexOf('>') >= 0 && temp.indexOf('>')>temp.indexOf('<')) {
+                // remove meta tags
+                if (temp.indexOf('<!DOCTYPE') >= 0 && temp.indexOf('>') >= 0 && temp.indexOf('>')>temp.indexOf('<!DOCTYPE')) {
+                    temp = temp.replace(temp.substring(temp.indexOf('<!DOCTYPE'),temp.indexOf('>')+1), '');
+                }
+                // remove comment's tag
+                else if(temp.indexOf('<!--') >= 0 && temp.indexOf('-->') >= 0 && temp.indexOf('-->')>temp.indexOf('<!--')) {
+                    temp = temp.replace(temp.substring(temp.indexOf('<!--'),temp.indexOf('-->')+3), '');
+                }
+                // remove all html tags
+                else if (temp.indexOf('<') >= 0 && temp.indexOf('>') >= 0 && temp.indexOf('>')>temp.indexOf('<')) {
                     temp = temp.replace(temp.substring(temp.indexOf('<'),temp.indexOf('>')+1), '');
-                } else {
+                }
+                // remove declaration of css
+                else if (temp.indexOf('{') >= 0 && temp.indexOf('}') >= 0 && temp.indexOf('}')>temp.indexOf('{')) {
+                    temp = temp.replace(temp.substring(temp.indexOf('{'),temp.indexOf('}')+1), '');
+                }
+                //remove character's code
+                else if ((temp.indexOf('&') >= 0 && temp.indexOf(';') >= 0 && temp.indexOf(';')>temp.indexOf('&'))) {
+                    temp = temp.replace(temp.substring(temp.indexOf('&'),temp.indexOf(';')+1), ' ');
+                }
+                //escape from while
+                else  {
                     break;
                 }
             }
             return temp;
         };
 
-        $http.get('null/data.json').then(function (response) {
-            angular.forEach(response.data, function(ticket) {
-                ticket.description = cleanString(ticket.description);
-                $scope.ticketList = ticket;
-            });
-        })
-
-        getTickets();
-
-
-    });
-
+    })
 })();
