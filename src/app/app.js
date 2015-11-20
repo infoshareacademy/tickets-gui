@@ -47,7 +47,7 @@
                     break;
                 }
             }
-            return temp;
+            return temp.trim();
         };
 
     })
