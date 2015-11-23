@@ -2,22 +2,22 @@
  * Created by katban on 23.11.15.
  */
 angular.module("tickets")
-    .directive('tickietTable', function() {
+    .directive('ticketTable', function() {
         return {
             restrict: 'E',
-            templateUrl: '_directives/tickiet-table.html',
+            templateUrl: '_directives/ticket-table.html',
             transclude: true,
             scope: {},
             controller: function ($scope, $http) {
 
-                $http.get('null/data.json')
+                $http.get('../app/null/data.json')
                     .then(function (response) {
                         var tickietClear = [];
                         angular.forEach(response.data, function(ticket) {
                             ticket.description = cleanString(ticket.description);
                             tickietClear.push(ticket);
                         });
-                        $scope.tickietsList = tickietClear;
+                        $scope.ticketsList = tickietClear;
 
                     });
 
@@ -38,6 +38,9 @@ angular.module("tickets")
                             temp = temp.replace(temp.substring(temp.indexOf('<'),temp.indexOf('>')+1), '');
                         }
                         // remove declaration of css
+                        else if (temp.indexOf('#') >= 0 && temp.indexOf('}') >= 0 && temp.indexOf('}')>temp.indexOf('#')) {
+                            temp = temp.replace(temp.substring(temp.indexOf('#'),temp.indexOf('}')+1), '');
+                        }
                         else if (temp.indexOf('{') >= 0 && temp.indexOf('}') >= 0 && temp.indexOf('}')>temp.indexOf('{')) {
                             temp = temp.replace(temp.substring(temp.indexOf('{'),temp.indexOf('}')+1), '');
                         }

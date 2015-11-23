@@ -4,7 +4,7 @@
 (function(){
     var app = angular.module('tickets', []);
 
-    app.controller('TickietsController', function ($scope, $http) {
+    app.controller('TicketsController', function ($scope, $http) {
 
     })
 })();
