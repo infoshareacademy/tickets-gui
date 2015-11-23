@@ -1,12 +1,20 @@
 <div class="container" ng-controller="TicketsController">
     <div class="row">
         <div class="col col-xs-12">
-            <table class="table table-hover">
+
+            <div ng-show="!isLoaded" class="progress">
+                <div class="progress-bar progress-bar-striped active" role="progressbar"
+                     aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                    Loading data...
+                </div>
+            </div>
+
+            <table class="table table-hover" ng-show="isLoaded">
                 <thead>
                 <th ng-click="reorder('title')" class="col-xs-2"> <i class="fa fa-sort"></i>&nbsp; Title</th>
                 <th ng-click="reorder('description')"><i class="fa fa-sort"></i>&nbsp;Description</th>
-                <th ng-click="reorder('price')"><i class="fa fa-sort"></i>&nbsp;Price</th>
-                <th ng-click="reorder('type')"><i class="fa fa-sort"></i>&nbsp;type</th>
+                <th ng-click="reorder('price')" class="col-xs-1"><i class="fa fa-sort"></i>&nbsp;Price</th>
+                <th ng-click="reorder('type')" class="col-xs-1"><i class="fa fa-sort"></i>&nbsp;type</th>
                 </thead>
 
                 <tbody>

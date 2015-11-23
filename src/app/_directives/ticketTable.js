@@ -10,20 +10,28 @@ angular.module("tickets")
             scope: {},
             controller: function ($scope, $http) {
 
-                $http.get('../app/null/data.json')
-                    .then(function (response) {
-                        var tickietClear = [];
-                        angular.forEach(response.data, function(ticket) {
-                            ticket.description = cleanString(ticket.description);
-                            tickietClear.push(ticket);
-                        });
-                        $scope.ticketsList = tickietClear;
+                var loader = function () {
+                    $http.get('http://localhost:8080/tickets-filter/app_dev.php/')
+                        .then(function (response) {
+                            var tickietClear = [];
+                            angular.forEach(response.data, function(ticket) {
+                                ticket.description = cleanString(ticket.description);
+                                tickietClear.push(ticket);
+                            });
+                            $scope.ticketsList = tickietClear;
+                            $scope.isLoaded = true;
 
-                    });
+                        });
+                };
 
                 $scope.reorder = function (field) {
                     $scope.desc = $scope.sortingField === field ? !$scope.desc : false;
                     $scope.sortingField = field;
+                };
+
+                $scope.init = function () {
+                    $scope.isLoaded = false;
+                    loader();
                 };
 
                 var cleanString = function (string) {
@@ -56,6 +64,7 @@ angular.module("tickets")
                     return temp.trim();
                 };
 
+                $scope.init();
             }
         }
     });
