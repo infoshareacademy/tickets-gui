@@ -16,38 +16,13 @@
     <!--App Module-->
     <script type="text/javascript" src="app.js"></script>
 
+    <!--directives-->
+    <script type="text/javascript" src="_directives/tickietTable.js"></script>
+
 </head>
 <body>
 
-    <div class="container" ng-controller="TickietsController">
-        <div class="row">
-            <div class="col col-xs-12">
-                <table class="table table-hover">
-                    <thead>
-                        <th ng-click="reorder('title')"> <i class="fa fa-sort"></i>&nbsp; Title</th>
-                        <th ng-click="reorder('description')"><i class="fa fa-sort"></i>&nbsp;Description</th>
-                        <th ng-click="reorder('price')"><i class="fa fa-sort"></i>&nbsp;Price</th>
-                        <th ng-click="reorder('type')"><i class="fa fa-sort"></i>&nbsp;type</th>
-                    </thead>
-
-                    <tbody>
-                        <tr ng-repeat="ticket in tickietsList | orderBy:sortingField:desc">
-                            <td><a href="{{ticket.auctionUrl}}">{{ticket.title}}</a></td>
-                            <td>{{ticket.description}}</td>
-                            <td>{{ticket.price}}</td>
-                            <td>{{ticket.type}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-
-    <!--(\\u003C){1}([a-z]+)(\\u003E){1}-->
-    <!--(\\u003C)[a-z]*(\\u003E)-->
-    <!--(\\u003C)((\/?\w+\s+[^>]*)|[a-z]+)(\\u003E)-->
-    <!--(\\u003C)(\/?\w+\s+[^(\\u003E)]*)-->
-
+    <tickiet-table></tickiet-table>
 
 </body>
 </html>
