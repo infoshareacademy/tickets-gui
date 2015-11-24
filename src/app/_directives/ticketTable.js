@@ -13,12 +13,12 @@ angular.module("tickets")
                 var loader = function () {
                     $http.get('http://localhost:8080/tickets-filter/app_dev.php/')
                         .then(function (response) {
-                            var tickietClear = [];
+                            var ticketClear = [];
                             angular.forEach(response.data, function(ticket) {
                                 ticket.description = cleanString(ticket.description);
-                                tickietClear.push(ticket);
+                                ticketClear.push(ticket);
                             });
-                            $scope.ticketsList = tickietClear;
+                            $scope.ticketsList = ticketClear;
                             $scope.isLoaded = true;
 
                         });
@@ -36,6 +36,7 @@ angular.module("tickets")
 
                 $scope.init = function () {
                     $scope.isLoaded = false;
+                    $scope.type = 'music';
                     loader();
                 };
 

@@ -1,55 +1,64 @@
 <div class="container" ng-controller="TicketsController">
-    <div class="row">
-        <div class="col col-xs-12">
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    Tickets from 3City :)
-                </div>
+    <h2>Tickets from 3City :)</h2>
 
-                <div class="panel-body" ng-show="!isLoaded">
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-striped active" role="progressbar"
-                             aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:100%">
-                            Loading data...
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#" ng-click="type='music'">Music</a></li>
+        <li><a data-toggle="tab" href="#" ng-click="type='sport'">Sport</a></li>
+        <li><a data-toggle="tab" href="#" ng-click="type='calender'">Calender</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div class="row">
+            <div class="col col-xs-12">
+                <div class="panel panel-info">
+                    <div class="panel-body" ng-show="!isLoaded">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped active" role="progressbar"
+                                 aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                                Loading data...
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="panel-body" ng-show="isLoaded">
-                    <table class="table table-hover">
-                        <thead>
-                            <th ng-click="reorder('title', 'music')" class="col-xs-2"> <i class="fa fa-sort"></i>&nbsp; Music events</th>
-                            <th ng-click="reorder('description', 'music')"><i class="fa fa-sort"></i>&nbsp;Description</th>
-                            <th ng-click="reorder('price', 'music')" class="col-xs-1"><i class="fa fa-sort"></i>&nbsp;Price</th>
-                        </thead>
+                    <div class="panel-body" ng-show="isLoaded && type=='music'">
+                        <table class="table table-hover">
+                            <thead>
+                                <th ng-click="reorder('title', 'music')" class="col-xs-2"> <i class="fa fa-sort"></i>&nbsp; Music events</th>
+                                <th ng-click="reorder('description', 'music')"><i class="fa fa-sort"></i>&nbsp;Description</th>
+                                <th ng-click="reorder('price', 'music')" class="col-xs-1"><i class="fa fa-sort"></i>&nbsp;Price</th>
+                            </thead>
 
-                        <tbody>
-                        <tr ng-repeat="ticketMusic in ticketsList | filter: {type: 'music'} | orderBy:sortingField:desc">
-                            <td><a href="{{ticketMusic.auctionUrl}}">{{ticketMusic.title}}</a></td>
-                            <td>{{ticketMusic.description}}</td>
-                            <td>{{ticketMusic.price}}</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
+                            <tbody>
+                            <tr ng-repeat="ticketMusic in ticketsList | filter: {type: 'music'} | orderBy:sortingField:desc">
+                                <td><a href="{{ticketMusic.auctionUrl}}">{{ticketMusic.title}}</a></td>
+                                <td>{{ticketMusic.description}}</td>
+                                <td>{{ticketMusic.price}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-                <div class="panel-body" ng-show="isLoaded">
-                    <table class="table table-hover">
-                        <thead>
-                            <th ng-click="reorder('title', 'sport')" class="col-xs-2"> <i class="fa fa-sort"></i>&nbsp; Sports events</th>
-                            <th ng-click="reorder('description', 'sport')"><i class="fa fa-sort"></i>&nbsp;Description</th>
-                            <th ng-click="reorder('price', 'sport')" class="col-xs-1"><i class="fa fa-sort"></i>&nbsp;Price</th>
-                        </thead>
+                    <div class="panel-body" ng-show="isLoaded && type=='sport'">
+                        <table class="table table-hover">
+                            <thead>
+                                <th ng-click="reorder('title', 'sport')" class="col-xs-2"> <i class="fa fa-sort"></i>&nbsp; Sports events</th>
+                                <th ng-click="reorder('description', 'sport')"><i class="fa fa-sort"></i>&nbsp;Description</th>
+                                <th ng-click="reorder('price', 'sport')" class="col-xs-1"><i class="fa fa-sort"></i>&nbsp;Price</th>
+                            </thead>
 
-                        <tbody>
-                        <tr ng-repeat="ticketSport in ticketsList | filter: {type: 'sport'} | orderBy:sortingSportField:sportDesc">
-                            <td><a href="{{ticketSport.auctionUrl}}">{{ticketSport.title}}</a></td>
-                            <td>{{ticketSport.description}}</td>
-                            <td>{{ticketSport.price}}</td>
-                        </tr>
-                        </tbody>
-                    </table>
+                            <tbody>
+                            <tr ng-repeat="ticketSport in ticketsList | filter: {type: 'sport'} | orderBy:sortingSportField:sportDesc">
+                                <td><a href="{{ticketSport.auctionUrl}}">{{ticketSport.title}}</a></td>
+                                <td>{{ticketSport.description}}</td>
+                                <td>{{ticketSport.price}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
+                    <div class="panel-body" ng-show="isLoaded && type=='calender'">
+                        A tu pawłowy kalendarz ;)
+                    </div>
                 </div>
             </div>
         </div>
