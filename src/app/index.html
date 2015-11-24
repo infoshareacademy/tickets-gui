@@ -1,22 +1,38 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="tickets">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
 
     <!--Styles-->
     <link rel="stylesheet" type="text/css" href="style/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="style/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="style/css/angular-snap.css" />
+    <link rel="stylesheet" type="text/css" href="style/css/main.css" />
+
 
     <!--Scripts-->
-    <script type="text/javascript" src="js/angular.js"></script>
-    <script type="text/javascript" src="js/jquery.js"></script>
+   <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/angular.js"></script>
+
 
     <!--App Module-->
     <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="controllers/login.js"></script>
+    <script type="text/javascript" src="controllers/dashboard.js"></script>
 
 </head>
-<body>
+<body  ng-app=yapp>
+<div>
+    <div ui-view></div>
+</div>
+
+<a href="" type="button" class="btn btn-info btn-sm"><i class="glyphicon glyphicon-refresh"></i> Synchronize</a>
+
+
 
 </body>
 </html>
