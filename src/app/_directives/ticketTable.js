@@ -24,9 +24,14 @@ angular.module("tickets")
                         });
                 };
 
-                $scope.reorder = function (field) {
-                    $scope.desc = $scope.sortingField === field ? !$scope.desc : false;
-                    $scope.sortingField = field;
+                $scope.reorder = function (field, typeList) {
+                    if(typeList ==='music') {
+                        $scope.desc = $scope.sortingField === field ? !$scope.desc : false;
+                        $scope.sortingField = field;
+                    } else {
+                        $scope.sportDesc = $scope.sortingField === field ? !$scope.sportDesc : false;
+                        $scope.sortingSportField = field;
+                    }
                 };
 
                 $scope.init = function () {

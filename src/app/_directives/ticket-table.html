@@ -2,11 +2,11 @@
     <div class="row">
         <div class="col col-xs-12">
             <div class="panel panel-info">
-                <div class="panel panel-heading">
+                <div class="panel-heading">
                     Tickets from 3City :)
                 </div>
 
-                <div class="panel panel-body" ng-show="!isLoaded">
+                <div class="panel-body" ng-show="!isLoaded">
                     <div class="progress">
                         <div class="progress-bar progress-bar-striped active" role="progressbar"
                              aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:100%">
@@ -15,39 +15,37 @@
                     </div>
                 </div>
 
-                <div class="panel panel-body" ng-show="isLoaded">
-                    <table class="table table-hover" ng-show="isLoaded">
+                <div class="panel-body" ng-show="isLoaded">
+                    <table class="table table-hover">
                         <thead>
-                        <th ng-click="reorder('title')" class="col-xs-2"> <i class="fa fa-sort"></i>&nbsp; Music events</th>
-                        <th ng-click="reorder('description')"><i class="fa fa-sort"></i>&nbsp;Description</th>
-                        <th ng-click="reorder('price')" class="col-xs-1"><i class="fa fa-sort"></i>&nbsp;Price</th>
-                        <!--<th ng-click="reorder('type')" class="col-xs-1"><i class="fa fa-sort"></i>&nbsp;type</th>-->
+                            <th ng-click="reorder('title', 'music')" class="col-xs-2"> <i class="fa fa-sort"></i>&nbsp; Music events</th>
+                            <th ng-click="reorder('description', 'music')"><i class="fa fa-sort"></i>&nbsp;Description</th>
+                            <th ng-click="reorder('price', 'music')" class="col-xs-1"><i class="fa fa-sort"></i>&nbsp;Price</th>
                         </thead>
 
                         <tbody>
-                        <tr ng-repeat="ticket in ticketsList | filter: {type: 'music' }| orderBy:sortingField:desc">
-                            <td><a href="{{ticket.auctionUrl}}">{{ticket.title}}</a></td>
-                            <td>{{ticket.description}}</td>
-                            <td>{{ticket.price}}</td>
+                        <tr ng-repeat="ticketMusic in ticketsList | filter: {type: 'music'} | orderBy:sortingField:desc">
+                            <td><a href="{{ticketMusic.auctionUrl}}">{{ticketMusic.title}}</a></td>
+                            <td>{{ticketMusic.description}}</td>
+                            <td>{{ticketMusic.price}}</td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
 
-                <div class="panel panel-body" ng-show="isLoaded">
-                    <table class="table table-hover" ng-show="isLoaded">
+                <div class="panel-body" ng-show="isLoaded">
+                    <table class="table table-hover">
                         <thead>
-                        <th ng-click="reorder('title')" class="col-xs-2"> <i class="fa fa-sort"></i>&nbsp; Sports events</th>
-                        <th ng-click="reorder('description')"><i class="fa fa-sort"></i>&nbsp;Description</th>
-                        <th ng-click="reorder('price')" class="col-xs-1"><i class="fa fa-sort"></i>&nbsp;Price</th>
-                        <!--<th ng-click="reorder('type')" class="col-xs-1"><i class="fa fa-sort"></i>&nbsp;type</th>-->
+                            <th ng-click="reorder('title', 'sport')" class="col-xs-2"> <i class="fa fa-sort"></i>&nbsp; Sports events</th>
+                            <th ng-click="reorder('description', 'sport')"><i class="fa fa-sort"></i>&nbsp;Description</th>
+                            <th ng-click="reorder('price', 'sport')" class="col-xs-1"><i class="fa fa-sort"></i>&nbsp;Price</th>
                         </thead>
 
                         <tbody>
-                        <tr ng-repeat="ticket in ticketsList | filter: {type: 'sport' }| orderBy:sortingField:desc">
-                            <td><a href="{{ticket.auctionUrl}}">{{ticket.title}}</a></td>
-                            <td>{{ticket.description}}</td>
-                            <td>{{ticket.price}}</td>
+                        <tr ng-repeat="ticketSport in ticketsList | filter: {type: 'sport'} | orderBy:sortingSportField:sportDesc">
+                            <td><a href="{{ticketSport.auctionUrl}}">{{ticketSport.title}}</a></td>
+                            <td>{{ticketSport.description}}</td>
+                            <td>{{ticketSport.price}}</td>
                         </tr>
                         </tbody>
                     </table>
