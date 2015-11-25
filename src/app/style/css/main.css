@@ -10,7 +10,7 @@ body {
     margin: 0
 }
 
-article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
     display: block
 }
 
@@ -2680,9 +2680,7 @@ caption, th {
     border-top: 1px solid #ddd;
     color:#444;
 }
-.table > tbody a{
-    color:#444;
-}
+
 
 .table > thead > tr > th {
     vertical-align: bottom;
@@ -7064,7 +7062,7 @@ button.close {
 
 .login2:focus {
     outline: none;
-    outline-offset: none
+    outline-offset: none;
 }
 
 .login2:hover {

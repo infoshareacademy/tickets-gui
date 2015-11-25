@@ -22,7 +22,7 @@
 				<a type="button" class="btn btn-default btn-sm"
 				   data-toggle="tooltip" data-placement="bottom" title="All tickets" tooltip
 				   ng-class="{active: $state.includes('overview')}"
-				   ui-sref="overview"><i class="glyphicon glyphicon-th-list"></i></a>
+				   ui-sref="overview"><i class="fa fa-list-alt"></i></a>
 
 				<a type="button" id="favorites" class="btn btn-default btn-sm"
 				   data-toggle="tooltip" data-placement="bottom" title="My Favorites" tooltip
@@ -30,8 +30,12 @@
 				   ui-sref="favorites"><i class="glyphicon glyphicon-heart"></i></a>
 
 				<a href="" type="button" class="btn btn-default btn-sm"
+				   data-toggle="modal" data-target=".bs-example-modal-sm"
+				   ng-click="synchronizeDb()"
 				   data-toggle="tooltip" data-placement="bottom" title="Synchronize" tooltip
-						><i class="sync-btn glyphicon glyphicon-refresh"></i></a>
+				   ng-mouseenter="hover = true"
+				   ng-mouseleave="hover = false"><i class="sync-btn fa fa-refresh"
+							ng-class="{'fa-spin': hover}"></i></a>
 
 			</nav>
 		</div>
@@ -56,4 +60,15 @@
 			</div>
 		</div>
 	</snap-content>
+</div>
+
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-body">
+				<p>{{sync}}</p>
+			</div>
+		</div>
+	</div>
 </div>

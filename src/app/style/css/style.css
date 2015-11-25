@@ -27,7 +27,7 @@
     box-shadow: none;
     -webkit-box-shadow: none;
     border: none;
-    color:#B4C0CD;
+    color:#CFDAE6;
     margin: 0;
 }
 
@@ -112,4 +112,42 @@
 .nav > li > a:hover, .nav > li > a:focus {
     text-decoration: none;
     background-color: #90A8C1;
+}
+
+
+
+.table > tbody a{
+    color:#444;
+}
+.table > tbody a:hover{
+    color:#111;
+    text-decoration: none;
+}
+.tooltip .tooltip-inner {
+    padding: 6px 15px;
+    font-size: 16px;
+}
+
+.tooltip .tooltip-arrow {
+}
+.tooltip.right .tooltip-inner {
+    margin-left: -1px;
+}
+
+
+.calendar-btn {
+    margin-right: -2px;
+    font-weight: 600;
+}
+.nav-tabs .calendar-btn.active a{
+    color:#44678B !important;
+}
+.nav-tabs .calendar-btn.active a:hover{
+    color:#5C88B5;
+}
+
+/* M O D A L */
+.modal-dialog {
+    color:#262626;
+    font-size: 16px;
 }
