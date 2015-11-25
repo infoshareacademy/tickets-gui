@@ -1,0 +1,57 @@
+<div>
+	<snap-drawer>
+		<div class="snap-menu">
+			<div class="sidebar-header text-center">
+				<i class="fa fa-user fa-5x sidebar-img img-circle" ></i>
+				<h3>Hello!</h3>
+				<p>Nullam vitae interdum eros. Sed hendrerit porttitor ante,
+					et rutrum arcu dapibus a. Sed erat mauris, venenatis
+					blandit aliquam eget, ultrices ut sapien. Suspendisse
+					porta pretium est, vel aliquet quam auctor in. Nullam
+					massa est, ultrices id luctus id, vulputate quis lacus.</p>
+				<a type="button" class="btn btn-default logout-btn" ui-sref="login"><i class="glyphicon glyphicon-log-out"> </i> Logout</a>
+			</div>
+		</div>
+	</snap-drawer>
+	<snap-content snap-opt-tap-to-close="false" class="bg-dark">
+		<div class="top-menu">
+			<nav class="navbar navbar-default navbar-static-top">
+
+					<a type="button" class="btn btn-default btn-sm"
+					   data-toggle="tooltip" data-placement="bottom" title="All tickets" tooltip
+					   ng-class="{active: $state.includes('overview')}"
+					   ui-sref="overview"><i class="glyphicon glyphicon-th-list"></i></a>
+
+					<a type="button" id="favorites" class="btn btn-default btn-sm"
+					   data-toggle="tooltip" data-placement="bottom" title="My Favorites" tooltip
+					   ng-class="{active: $state.includes('favorites')}"
+					   ui-sref="favorites"><i class="glyphicon glyphicon-heart"></i></a>
+
+					<a href="" type="button" class="btn btn-default btn-sm "
+					   data-toggle="tooltip" data-placement="bottom" title="Synchronize" tooltip
+							><i class="sync-btn glyphicon glyphicon-refresh"></i></a>
+
+			</nav>
+		</div>
+
+		<a href="" snap-toggle="left" ng-click="menuOpen = !menuOpen">
+			<span class="menutoggle">
+				<i ng-hide="menuOpen"
+				   data-toggle="tooltip" data-placement="right" title="My Account" tooltip
+				   class="fa fa-user fa-2x" ></i>
+				<i ng-show="menuOpen"
+				   data-toggle="tooltip" data-placement="right" title="Hide" tooltip
+				   class="fa fa-times fa-2x" ></i>
+			</span>
+		</a>
+		
+		<div class="fr">
+		<h2>Favorites  <small>chosen by me</small></h2>
+		</div>
+		<div class="jumbotron">
+			<div class="container">
+				<ticket-table></ticket-table>
+			</div>
+		</div>
+	</snap-content>
+</div>

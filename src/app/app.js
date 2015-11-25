@@ -2,7 +2,7 @@
  * Created by paoolskoolsky on 17.11.15.
  */
 angular
-    .module('yapp', [
+    .module('tickets', [
         'ui.router',
         'snap',
         'ngAnimate'
@@ -16,29 +16,41 @@ angular
             .state('base', {
                 abstract: true,
                 url: '',
-                templateUrl: 'views/base.html'
+                templateUrl: '_views/base.html'
             })
             .state('login', {
                 url: '/login',
                 parent: 'base',
-                templateUrl: 'views/login.html',
+                templateUrl: '_views/login.html',
                 controller: 'LoginCtrl'
             })
             .state('dashboard', {
                 url: '/dashboard',
                 parent: 'base',
-                templateUrl: 'views/dashboard.html',
+                templateUrl: '_views/dashboard.html',
                 controller: 'DashboardCtrl'
             })
             .state('overview', {
                 url: '/overview',
                 parent: 'dashboard',
-                templateUrl: 'views/dashboard/overview.html'
+                templateUrl: '_views/dashboard/overview.html'
             })
-            .state('reports', {
-                url: '/reports',
+            .state('favorites', {
+                url: '/favorites',
                 parent: 'dashboard',
-                templateUrl: 'views/dashboard/reports.html'
+                templateUrl: '_views/dashboard/favorites.html'
             });
-
+    }).directive('tooltip', function(){
+        return {
+            restrict: 'A',
+            link: function(scope, element, attrs){
+                $(element).hover(function(){
+                    // on mouseenter
+                    $(element).tooltip('show');
+                }, function(){
+                    // on mouseleave
+                    $(element).tooltip('hide');
+                });
+            }
+        };
     });

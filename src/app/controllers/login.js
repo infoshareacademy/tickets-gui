@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name yapp.controller:MainCtrl
+ * @name tickets.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of yapp
+ * Controller of tickets
  */
-angular.module('yapp')
+angular.module('tickets')
   .controller('LoginCtrl', function($scope, $location) {
 
     $scope.submit = function() {

@@ -11,7 +11,8 @@ angular.module("tickets")
             controller: function ($scope, $http) {
 
                 var loader = function () {
-                    $http.get('http://localhost:8080/tickets-filter/app_dev.php/')
+                    //$http.get('http://localhost:8080/tickets-filter/app_dev.php/')
+                    $http.get('null/data.json')
                         .then(function (response) {
                             var ticketClear = [];
                             angular.forEach(response.data, function(ticket) {
