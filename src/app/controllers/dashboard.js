@@ -18,7 +18,7 @@ angular.module('tickets')
             .success(function(data){
             })
             .error(function(err){
-              $scope.sync = 'Database synchronization failed. \nWe are sorry :)';
+              $scope.sync = 'Database synchronization failed. \nWe are sorry.';
             })
       }
 
