@@ -10,6 +10,7 @@ angular.module('500tech.simple-calendar', []).directive('simpleCalendar', functi
       var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
       var WEEKDAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
       var calculateSelectedDate, calculateWeeks, allowedDate, bindEvent;
+
       $scope.options = $scope.options || {};
       $scope.options.dayNamesLength = $scope.options.dayNamesLength || 1;
       $scope.onClick = function (date) {
@@ -153,15 +154,15 @@ angular.module('500tech.simple-calendar', []).directive('simpleCalendar', functi
       };
 
       $scope.options.eventClick = function(date){
-
+        $scope.eventsList = [];
 
         $scope.events.forEach(function(event) {
           event.date = new Date(event.date);
-          console.log(event.date);
           if (date.year === event.date.getFullYear() && date.month === event.date.getMonth() && date.day === event.date.getDate()) {
-            date.event = event;
+            $scope.eventsList.push(event);
           }
         });
+        console.log($scope.eventsList);
       };
 
       $scope.$watch('options.defaultDate', function() {

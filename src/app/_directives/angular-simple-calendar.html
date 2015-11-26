@@ -1,4 +1,4 @@
-<div class="calendar">
+<div class="calendar col-sm-9">
     <div class="current-month">
         <div class="move-month prev-month" ng-click="prevMonth()">
             <span ng-show="allowedPrevMonth()">&#x2039;</span>
@@ -19,9 +19,14 @@
             ng-class="{default: isDefaultDate(date), event: date.event, disabled: date.disabled || !date}"
             ng-repeat="date in week  track by $index"
             ng-click="onClick(date)">
-            <div class="day-number">{{ date.day || "&nbsp;" }}</div>
+            <div class="day-number"><span>{{ date.day || "&nbsp;" }}</span></div>
             <div class="event-title">{{ date.event.title || "&nbsp;" }}</div>
             </div>
         </div>
     </div>
+</div>
+<div class="events-list col-sm-3">
+    <ul>
+        <li ng-repeat="event in eventsList" ><a href="{{event.eventUrl}}">{{ event.title }}</a></li>
+    </ul>
 </div>

@@ -167,3 +167,12 @@
     color:#BE776E;
     font-size: 32px;
 }
+
+.events-list {
+    background-color: #262626;
+    color: snow;
+    min-height:300px;
+}
+.events-list ul {
+    list-style: none;
+}
