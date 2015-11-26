@@ -153,3 +153,17 @@
     color:#262626;
     font-size: 16px;
 }
+
+/* C A L E N D A R*/
+.current-month {
+    color:#A2A0A5;
+}
+
+.move-month.prev-month {
+    color:#BE776E;
+    font-size: 32px;
+}
+.move-month.next-month {
+    color:#BE776E;
+    font-size: 32px;
+}
