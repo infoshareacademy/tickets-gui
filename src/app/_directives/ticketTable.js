@@ -17,21 +17,29 @@ angular.module("tickets")
                 var localBackend = 'http://localhost:3000/fav-tickets';
 
                 $scope.$state = $state;
-                $scope.isFavorite = false;
 
                 var loader = function () {
-
+                    if ($state.includes('overview')) {
                     $http.get(mockedDb)
                         .then(function (response) {
-                            var ticketClear = [];
-                            angular.forEach(response.data, function(ticket) {
-                                ticket.description = cleanString(ticket.description);
-                                ticketClear.push(ticket);
-                            });
-                            $scope.ticketsList = ticketClear;
-                            $scope.isLoaded = true;
-
+                            getTickets(response);
                         });
+                    } else if ($state.includes('favorites')) {
+                            $http.get(localBackend)
+                                .then(function(response) {
+                                    getTickets(response);
+                                })
+                    }
+                };
+
+                var getTickets = function (response) {
+                    var ticketClear = [];
+                    angular.forEach(response.data, function(ticket) {
+                        ticket.description = cleanString(ticket.description);
+                        ticketClear.push(ticket);
+                    });
+                    $scope.ticketsList = ticketClear;
+                    $scope.isLoaded = true;
                 };
 
                 $scope.reorder = function (field, typeList) {
@@ -87,7 +95,6 @@ angular.module("tickets")
                     var newFavTicket = angular.copy(favTicket);
                     $http.post(localBackend, newFavTicket)
                         .then(function (response) {
-                            $scope.isFavorite = true;
                         })
                 };
 
@@ -95,7 +102,7 @@ angular.module("tickets")
                     console.log('removed from favorites');
                     $http.delete(localBackend + '/' + favTicket._id)
                         .then(function (response) {
-                            $scope.isFavorite = false;
+                            loader();
                         })
                 };
             }
