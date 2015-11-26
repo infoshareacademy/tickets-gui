@@ -155,15 +155,26 @@
 }
 
 /* C A L E N D A R*/
-.current-month {
+simple-calendar .current-month {
     color:#A2A0A5;
+    font-weight: bold;
 }
 
-.move-month.prev-month {
+simple-calendar .move-month.prev-month {
     color:#BE776E;
-    font-size: 32px;
+    font-size: 26px;
 }
-.move-month.next-month {
+simple-calendar .move-month.next-month {
     color:#BE776E;
-    font-size: 32px;
+    font-size: 26px;
+}
+simple-calendar .weekday {
+    color:#000000;
+    font-size: 8px;
+}
+simple-calendar .day-number {
+    color:#000000;
+}
+simple-calendar .event .day-number {
+    display: none;
 }
