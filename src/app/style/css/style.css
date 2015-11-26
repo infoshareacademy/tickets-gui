@@ -158,43 +158,69 @@
 simple-calendar .current-month {
     color:#A2A0A5;
     font-weight: bold;
+    font-size: 26px;
 }
 
 simple-calendar .move-month.prev-month {
-    color:#BE776E;
+    color:#FE7B5F;
     font-size: 26px;
 }
 simple-calendar .move-month.next-month {
-    color:#BE776E;
+    color:#FE7B5F;
     font-size: 26px;
 }
 simple-calendar .weekday {
     color:#000000;
-    font-size: 8px;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 simple-calendar .day-number {
     color:#000000;
-}
-simple-calendar .event .day-number {
-    display: none;
-    font-size: 32px;
-}
 
-.events-list {
-    background-color: #262626;
-    color: snow;
-    min-height:300px;
 }
-.events-list ul {
+simple-calendar .day-number span {
+    text-align: center;
+    display: block;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    border-radius: 12px;
+    margin: auto;
+}
+simple-calendar .event .day-number span {
+    background-color: #FE7B5F;
+    color: white;
+}
+simple-calendar .day.event {
+    background-color: white;
+}
+simple-calendar .calendar {
+    border: none;
+}
+simple-calendar .day {
+    border: none;
+}
+simple-calendar .events-list {
+    background-color: #3E454D;
+    color: #6A7682;
+    min-height: 300px;
+    padding-top: 10px;
+}
+simple-calendar .events-list ul {
     list-style: none;
+    text-align: center;
     padding: 0;
-    margin: 12px 5px;
-    font-size: 12px;
 }
-.events-list ul a{
-    color:#ddd;
+simple-calendar h4 {
+    color: #FE7B5F;
+    text-align: center;
+    font-weight: bold;
 }
-.events-list ul a:hover{
-    color:#fff;
+simple-calendar .events-list li {
+    padding-top: 10px;
+}
+simple-calendar .events-list a:hover {
     text-decoration: none;
+    font-weight: bold;
 }
