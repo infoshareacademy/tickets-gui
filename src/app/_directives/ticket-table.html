@@ -35,15 +35,19 @@
                                 <td ng-if="!excerpt">{{ticketMusic.description | limitTo : 250 : 0}}...</td>
                                 <td ng-if="excerpt">{{ticketMusic.description}}</td>
                                 <td>{{ticketMusic.price}}</td>
-                                <td ng-if="shouldAdd()">
+
+                                <td ng-if="$state.includes('overview')">
                                     <a type="button" id="favorites" class="btn btn-default btn-sm"
-                                       data-toggle="tooltip" data-placement="bottom" title="Observe" ng-class="{active: $state.includes('favorites')}">
-                                       <i class="glyphicon glyphicon-heart"></i>
+                                       data-toggle="tooltip" data-placement="bottom" title="Observe" tooltip
+                                            ng-click="addToFavorites()">
+                                        <i class="glyphicon glyphicon-heart"></i>
                                     </a>
                                 </td>
-                                <td ng-if="shouldRemove()">
+
+                                <td ng-if="$state.includes('favorites')">
                                     <a type="button" id="favorites" class="btn btn-default btn-sm"
-                                       data-toggle="tooltip" data-placement="bottom" title="Observe" tooltip>
+                                       data-toggle="tooltip" data-placement="bottom" title="Stop observing" tooltip
+                                            ng-click="removeFromFavorites()">
                                         <i class="glyphicon glyphicon-heart"></i>
                                     </a>
                                 </td>
@@ -67,6 +71,22 @@
                                 <td ng-if="!excerpt; ">{{ticketSport.description  | limitTo : 250 : 0}}...</td>
                                 <td ng-if="excerpt">{{ticketMusic.description}}</td>
                                 <td>{{ticketSport.price}}</td>
+
+                                <td ng-if="$state.includes('overview')">
+                                    <a type="button" id="favorites" class="btn btn-default btn-sm"
+                                       data-toggle="tooltip" data-placement="bottom" title="Observe" tooltip
+                                            ng-click="addToFavorites()">
+                                        <i class="glyphicon glyphicon-heart"></i>
+                                    </a>
+                                </td>
+
+                                <td ng-if="$state.includes('favorites')">
+                                    <a type="button" id="favorites" class="btn btn-default btn-sm"
+                                       data-toggle="tooltip" data-placement="bottom" title="Stop observing" tooltip
+                                            ng-click="removeFromFavorites()">
+                                        <i class="glyphicon glyphicon-heart"></i>
+                                    </a>
+                                </td>
                             </tr>
                             </tbody>
                         </table>

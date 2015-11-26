@@ -8,7 +8,9 @@ angular.module("tickets")
             templateUrl: '_directives/ticket-table.html',
             transclude: true,
             scope: {},
-            controller: function ($scope, $http) {
+            controller: function ($scope, $state, $http) {
+
+                $scope.$state = $state;
 
                 var loader = function () {
                     //$http.get('http://localhost:8080/tickets-filter/app_dev.php/')
@@ -72,6 +74,14 @@ angular.module("tickets")
                 };
 
                 $scope.init();
+
+                $scope.addToFavorites = function() {
+                    console.log('added to favorites')
+                };
+
+                $scope.removeFromFavorites = function() {
+                    console.log('removed from favorites')
+                };
             }
         }
     });
