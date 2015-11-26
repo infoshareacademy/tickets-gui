@@ -177,4 +177,14 @@ simple-calendar .day-number {
 }
 simple-calendar .event .day-number {
     display: none;
+    font-size: 32px;
+}
+
+.events-list {
+    background-color: #262626;
+    color: snow;
+    min-height:300px;
+}
+.events-list ul {
+    list-style: none;
 }

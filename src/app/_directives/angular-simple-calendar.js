@@ -5,37 +5,12 @@ angular.module('500tech.simple-calendar', []).directive('simpleCalendar', functi
       options: '=?',
       events: '=?'
     },
-    template: '<div class="calendar">' +
-    '<div class="current-month">' +
-    '<div class="move-month prev-month" ng-click="prevMonth()">' +
-    '<span ng-show="allowedPrevMonth()">&#x2039;</span>' +
-    '</div>' +
-    '<span>{{ selectedMonth }}</span>' +
-    '&nbsp;' +
-    '<span>{{ selectedYear }}</span>' +
-    '<div class="move-month next-month" ng-click="nextMonth()">' +
-    '<span ng-show="allowedNextMonth()">&#x203a;</span>' +
-    '</div>' +
-    '</div>' +
-    '<div>' +
-    '<div ng-repeat="day in weekDays(options.dayNamesLength) track by $index" class="weekday">{{ day }}</div>' +
-    '</div>' +
-    '<div>' +
-    '<div ng-repeat="week in weeks track by $index" class="week">' +
-    '<div class="day"' +
-    'ng-class="{default: isDefaultDate(date), event: date.event, disabled: date.disabled || !date}"' +
-    'ng-repeat="date in week  track by $index"' +
-    'ng-click="onClick(date)">' +
-    '<div class="day-number">{{ date.day || "&nbsp;" }}</div>' +
-    '<div class="event-title">{{ date.event.title || "&nbsp;" }}</div>' +
-    ' </div>' +
-    '</div>' +
-    '</div>' +
-    '</div>',
+    templateUrl: '_directives/angular-simple-calendar.html',
     controller: ['$scope', '$rootScope', function ($scope, $rootScope) {
       var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
       var WEEKDAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
       var calculateSelectedDate, calculateWeeks, allowedDate, bindEvent;
+
       $scope.options = $scope.options || {};
       $scope.options.dayNamesLength = $scope.options.dayNamesLength || 1;
       $scope.onClick = function (date) {
@@ -177,6 +152,19 @@ angular.module('500tech.simple-calendar', []).directive('simpleCalendar', functi
         }
         calculateWeeks();
       };
+
+      $scope.options.eventClick = function(date){
+        $scope.eventsList = [];
+
+        $scope.events.forEach(function(event) {
+          event.date = new Date(event.date);
+          if (date.year === event.date.getFullYear() && date.month === event.date.getMonth() && date.day === event.date.getDate()) {
+            $scope.eventsList.push(event);
+          }
+        });
+        console.log($scope.eventsList);
+      };
+
       $scope.$watch('options.defaultDate', function() {
         calculateSelectedDate();
       });
