@@ -18,7 +18,7 @@ angular.module("tickets")
 
                 var loader = function () {
 
-                    $http.get(mockedDb)
+                    $http.get(testDbUrl)
                         .then(function (response) {
                             var ticketClear = [];
                             angular.forEach(response.data, function(ticket) {
