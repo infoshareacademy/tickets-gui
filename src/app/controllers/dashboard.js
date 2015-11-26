@@ -20,6 +20,14 @@ angular.module('tickets')
             .error(function(err){
               $scope.sync = 'Database synchronization failed. \nWe are sorry.';
             })
-      }
+      };
+
+        $scope.isAddingToFavorites = function() {
+
+        };
+
+        $scope.isRemovingFromFavorites = function() {
+
+        };
 
   });

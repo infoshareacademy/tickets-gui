@@ -25,6 +25,7 @@
                                 <th ng-click="reorder('title', 'music')" class="col-xs-2"> <i class="fa fa-sort"></i>&nbsp; Music events</th>
                                 <th ng-click="reorder('description', 'music')"><i class="fa fa-sort"></i>&nbsp;Description</th>
                                 <th ng-click="reorder('price', 'music')" class="col-xs-1"><i class="fa fa-sort"></i>&nbsp;Price</th>
+                                <th></th>
                             </thead>
 
                             <tbody>
@@ -32,6 +33,18 @@
                                 <td><a href="{{ticketMusic.auctionUrl}}">{{ticketMusic.title}}</a></td>
                                 <td>{{ticketMusic.description}}</td>
                                 <td>{{ticketMusic.price}}</td>
+                                <td ng-if="shouldAdd()">
+                                    <a type="button" id="favorites" class="btn btn-default btn-sm"
+                                       data-toggle="tooltip" data-placement="bottom" title="Observe" ng-class="{active: $state.includes('favorites')}">
+                                       <i class="glyphicon glyphicon-heart"></i>
+                                    </a>
+                                </td>
+                                <td ng-if="shouldRemove()">
+                                    <a type="button" id="favorites" class="btn btn-default btn-sm"
+                                       data-toggle="tooltip" data-placement="bottom" title="Observe" tooltip>
+                                        <i class="glyphicon glyphicon-heart"></i>
+                                    </a>
+                                </td>
                             </tr>
                             </tbody>
                         </table>
