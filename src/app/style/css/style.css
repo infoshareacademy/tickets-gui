@@ -17,18 +17,20 @@
     padding: 14px 17px 11px;
     margin: 0;
     float: left;
-    color: #778A9E;
+    color: #6698CC;
 }
 
 .top-menu .navbar .btn:hover {
     color: #456F9C;
 }
 .top-menu .navbar .btn.active {
-    box-shadow: none;
-    -webkit-box-shadow: none;
     border: none;
-    color:#CFDAE6;
+    color:#B1B7BE;
+    background-color: #f1f1f1;
     margin: 0;
+    -moz-box-shadow:    inset 0px 7px 15px #ddd;
+    -webkit-box-shadow: inset 0px 7px 15px #ddd;
+    box-shadow:         inset 0px 7px 15px #ddd;
 }
 
 .sync-btn {
