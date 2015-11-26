@@ -14,6 +14,7 @@ angular.module("tickets")
 
                 var loader = function () {
                     //$http.get('http://localhost:8080/tickets-filter/app_dev.php/')
+                    //$http.get('http://test.tickets-processor.infoshareaca.nazwa.pl/import')
                     $http.get('null/data.json')
                         .then(function (response) {
                             var ticketClear = [];

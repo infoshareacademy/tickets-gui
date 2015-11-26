@@ -14,7 +14,7 @@ angular.module('tickets')
     $scope.sync = 'Database synchronization started. \nPlease be patient :)';
 
       $scope.synchronizeDb = function() {
-        $http.get('http://test.tickets-processor.infoshareaca.nazwa.pl/app_dev.php/update')
+        $http.get('http://test.tickets-processor.infoshareaca.nazwa.pl/update')
             .success(function(data){
             })
             .error(function(err){
