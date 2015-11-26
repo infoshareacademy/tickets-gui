@@ -75,7 +75,7 @@
                                 <td ng-show="$state.includes('overview')">
                                     <a type="button" id="favorites" class="btn btn-default btn-sm"
                                        data-toggle="tooltip" data-placement="bottom" title="Observe" tooltip
-                                            ng-click="addToFavorites()">
+                                            ng-click="addToFavorites(ticketSport)">
                                         <i class="glyphicon glyphicon-heart"></i>
                                     </a>
                                 </td>
@@ -83,7 +83,7 @@
                                 <td ng-show="$state.includes('favorites')">
                                     <a type="button" id="favorites" class="btn btn-default btn-sm"
                                        data-toggle="tooltip" data-placement="bottom" title="Stop observing" tooltip
-                                            ng-click="removeFromFavorites()">
+                                            ng-click="removeFromFavorites(ticketSport)">
                                         <i class="glyphicon glyphicon-heart"></i>
                                     </a>
                                 </td>

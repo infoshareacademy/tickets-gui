@@ -14,11 +14,14 @@ angular.module("tickets")
                 var mockedDb = 'null/data.json';
                 var testDbUrl = 'http://test.tickets-processor.infoshareaca.nazwa.pl/import';
 
+                var localBackend = 'http://localhost:3000/fav-tickets';
+
                 $scope.$state = $state;
+                $scope.isFavorite = false;
 
                 var loader = function () {
 
-                    $http.get(testDbUrl)
+                    $http.get(mockedDb)
                         .then(function (response) {
                             var ticketClear = [];
                             angular.forEach(response.data, function(ticket) {
@@ -79,12 +82,21 @@ angular.module("tickets")
 
                 $scope.init();
 
-                $scope.addToFavorites = function() {
-                    console.log('added to favorites')
+                $scope.addToFavorites = function(favTicket) {
+                    console.log('added to favorites');
+                    var newFavTicket = angular.copy(favTicket);
+                    $http.post(localBackend, newFavTicket)
+                        .then(function (response) {
+                            $scope.isFavorite = true;
+                        })
                 };
 
-                $scope.removeFromFavorites = function() {
-                    console.log('removed from favorites')
+                $scope.removeFromFavorites = function(favTicket) {
+                    console.log('removed from favorites');
+                    $http.delete(localBackend + '/' + favTicket._id)
+                        .then(function (response) {
+                            $scope.isFavorite = false;
+                        })
                 };
             }
         }
