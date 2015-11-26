@@ -162,9 +162,11 @@ angular.module('500tech.simple-calendar', []).directive('simpleCalendar', functi
             $scope.eventsList.push(event);
           }
         });
-        console.log($scope.eventsList);
       };
+      $scope.options.dateClick = function(){
+        $scope.eventsList = [];
 
+      };
       $scope.$watch('options.defaultDate', function() {
         calculateSelectedDate();
       });
