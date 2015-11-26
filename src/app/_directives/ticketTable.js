@@ -76,7 +76,7 @@ angular.module("tickets")
                     defaultDate: "2015-11-26",
                     minDate: new Date(),
                     maxDate: new Date([2020, 12, 31]),
-                    dayNamesLength: 9, // How to display weekdays (1 for "M", 2 for "Mo", 3 for "Mon"; 9 will show full day names; default is 1)
+                    dayNamesLength: 3, // How to display weekdays (1 for "M", 2 for "Mo", 3 for "Mon"; 9 will show full day names; default is 1)
                     eventClick: $scope.eventClick,
                     dateClick: $scope.dateClick
                 };
