@@ -5,7 +5,8 @@ angular
     .module('tickets', [
         'ui.router',
         'snap',
-        'ngAnimate'
+        'ngAnimate',
+        '500tech.simple-calendar'
     ])
     .config(function($stateProvider, $urlRouterProvider) {
 
