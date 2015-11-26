@@ -52,7 +52,7 @@
                                 ng-click="excerptSport = !excerptSport; ">
                                 <td><a href="{{ticketSport.auctionUrl}}">{{ticketSport.title}}</a></td>
                                 <td ng-if="!excerptSport; ">{{ticketSport.description  | limitTo : 250 : 0}}...</td>
-                                <td ng-if="excerptSport">{{ticketMusic.description}}</td>
+                                <td ng-if="excerptSport">{{ticketSport.description}}</td>
                                 <td>{{ticketSport.price}}</td>
                             </tr>
                             </tbody>
