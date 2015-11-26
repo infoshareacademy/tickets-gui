@@ -27,6 +27,6 @@
 </div>
 <div class="events-list col-sm-3">
     <ul>
-        <li ng-repeat="event in eventsList" ><a href="{{event.eventUrl}}">{{ event.title }}</a></li>
+        <li ng-repeat="event in eventsList" ><a data-toggle="modal" data-target=".modal" ng-click="openEventModal(event)">{{ event.title }}</a></li>
     </ul>
 </div>

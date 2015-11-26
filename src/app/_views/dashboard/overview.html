@@ -31,7 +31,7 @@
 				   ui-sref="favorites"><i class="glyphicon glyphicon-heart"></i></a>
 
 				<a href="" type="button" class="btn btn-default btn-sm"
-				   data-toggle="modal" data-target=".bs-example-modal-sm"
+				   data-toggle="modal" data-target=".modal"
 				   ng-click="synchronizeDb()"
 				   data-toggle="tooltip" data-placement="bottom" title="Synchronize" tooltip
 				   ng-mouseenter="hover = true"
@@ -64,11 +64,12 @@
 </div>
 
 
-<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+
+<div class="modal fade " tabindex="-1" role="dialog" aria-labelledby="AlertsModal">
 	<div class="modal-dialog modal-sm">
 		<div class="modal-content">
 			<div class="modal-body">
-				<p>{{sync}}</p>
+				<div ng-bind-html="modalTxt | renderHTMLCorrectly"></div>
 			</div>
 		</div>
 	</div>
