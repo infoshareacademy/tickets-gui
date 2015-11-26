@@ -10,12 +10,15 @@ angular.module("tickets")
             scope: {},
             controller: function ($scope, $state, $http) {
 
+                $scope.developDbUrl = 'http://localhost:8080/tickets-filter/app_dev.php/';
+                $scope.mockedDb = 'null/data.json';
+                $scope.testDbUrl = 'http://test.tickets-processor.infoshareaca.nazwa.pl/import';
+
                 $scope.$state = $state;
 
                 var loader = function () {
-                    //$http.get('http://localhost:8080/tickets-filter/app_dev.php/')
-                    //$http.get('http://test.tickets-processor.infoshareaca.nazwa.pl/import')
-                    $http.get('null/data.json')
+
+                    $http.get($scope.mockedDb)
                         .then(function (response) {
                             var ticketClear = [];
                             angular.forEach(response.data, function(ticket) {
