@@ -175,4 +175,14 @@
 }
 .events-list ul {
     list-style: none;
+    padding: 0;
+    margin: 12px 5px;
+    font-size: 12px;
+}
+.events-list ul a{
+    color:#ddd;
+}
+.events-list ul a:hover{
+    color:#fff;
+    text-decoration: none;
 }
