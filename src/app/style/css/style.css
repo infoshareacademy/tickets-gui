@@ -206,6 +206,9 @@ simple-calendar .event .day-number span {
 simple-calendar .day.event {
     background-color: white;
 }
+simple-calendar .day.event:hover {
+    background-color: #FFC8A3;
+}
 simple-calendar .calendar {
     border: none;
 }
@@ -234,4 +237,10 @@ simple-calendar .events-list li {
 simple-calendar .events-list a:hover {
     text-decoration: none;
     font-weight: bold;
+}
+.login-page .form-content .table-form .button-container {
+    display: table-cell;
+    vertical-align: middle;
+    width: 196px;
+    text-align: center;
 }

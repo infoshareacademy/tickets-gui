@@ -1428,11 +1428,13 @@ h2, .h2 {
 }
 
 h3, .h3 {
-    font-size: 24px
+    font-size: 24px;
+    text-align: center;
 }
 
 h4, .h4 {
-    font-size: 18px
+    font-size: 18px;
+    text-align: center;
 }
 
 h5, .h5 {
@@ -7020,6 +7022,17 @@ button.close {
     border-radius: 0;
     background: orange;
     border-color: orange;
+    box-shadow: none;
+    margin-left: 15px;
+    color: #fff
+}
+
+.login-page .form-content .login2 {
+    height: 110px;
+    width: 100px;
+    border-radius: 0;
+    background: orangered;
+    border-color: orangered;
     box-shadow: none;
     margin-left: 15px;
     color: #fff
