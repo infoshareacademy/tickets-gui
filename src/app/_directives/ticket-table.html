@@ -25,6 +25,7 @@
                                 <th ng-click="reorder('title', 'music')" class="col-xs-2"> <i class="fa fa-sort"></i>&nbsp; Music events</th>
                                 <th ng-click="reorder('description', 'music')"><i class="fa fa-sort"></i>&nbsp;Description</th>
                                 <th ng-click="reorder('price', 'music')" class="col-xs-1"><i class="fa fa-sort"></i>&nbsp;Price</th>
+                                <th></th>
                             </thead>
 
                             <tbody>
@@ -34,6 +35,22 @@
                                 <td ng-if="!excerpt">{{ticketMusic.description | limitTo : 250 : 0}}...</td>
                                 <td ng-if="excerpt">{{ticketMusic.description}}</td>
                                 <td>{{ticketMusic.price}}</td>
+
+                                <td ng-show="$state.includes('overview')">
+                                    <a type="button" id="favorites" class="btn btn-default btn-sm"
+                                       data-toggle="tooltip" data-placement="bottom" title="Observe" tooltip
+                                            ng-click="addToFavorites(ticketMusic)">
+                                        <i class="glyphicon glyphicon-heart"></i>
+                                    </a>
+                                </td>
+
+                                <td ng-show="$state.includes('favorites')">
+                                    <a type="button" id="favorites" class="btn btn-default btn-sm"
+                                       data-toggle="tooltip" data-placement="bottom" title="Stop observing" tooltip
+                                            ng-click="removeFromFavorites(ticketMusic)">
+                                        <i class="glyphicon glyphicon-heart"></i>
+                                    </a>
+                                </td>
                             </tr>
                             </tbody>
                         </table>
@@ -54,6 +71,22 @@
                                 <td ng-if="!excerptSport; ">{{ticketSport.description  | limitTo : 250 : 0}}...</td>
                                 <td ng-if="excerptSport">{{ticketSport.description}}</td>
                                 <td>{{ticketSport.price}}</td>
+
+                                <td ng-show="$state.includes('overview')">
+                                    <a type="button" id="favorites" class="btn btn-default btn-sm"
+                                       data-toggle="tooltip" data-placement="bottom" title="Observe" tooltip
+                                            ng-click="addToFavorites(ticketSport)">
+                                        <i class="glyphicon glyphicon-heart"></i>
+                                    </a>
+                                </td>
+
+                                <td ng-show="$state.includes('favorites')">
+                                    <a type="button" id="favorites" class="btn btn-default btn-sm"
+                                       data-toggle="tooltip" data-placement="bottom" title="Stop observing" tooltip
+                                            ng-click="removeFromFavorites(ticketSport)">
+                                        <i class="glyphicon glyphicon-heart"></i>
+                                    </a>
+                                </td>
                             </tr>
                             </tbody>
                         </table>

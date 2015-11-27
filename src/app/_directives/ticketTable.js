@@ -8,22 +8,38 @@ angular.module("tickets")
             templateUrl: '_directives/ticket-table.html',
             transclude: true,
             scope: {},
-            controller: function ($scope, $rootScope, $http) {
+            controller: function ($scope, $rootScope, $state, $http) {
+
+                var developDbUrl = 'http://localhost:8080/tickets-filter/app_dev.php/';
+                var mockedDb = 'null/data.json';
+                var testDbUrl = 'http://test.tickets-processor.infoshareaca.nazwa.pl/import';
+
+                var localBackend = 'http://localhost:3000/fav-tickets';
+
+                $scope.$state = $state;
 
                 var loader = function () {
-                    //$http.get('http://localhost:8080/tickets-filter/app_dev.php/')
-                    //$http.get('http://test.tickets-processor.infoshareaca.nazwa.pl/import')
-                    $http.get('http://test.tickets-processor.infoshareaca.nazwa.pl/import')
+                    if ($state.includes('overview')) {
+                    $http.get(mockedDb)
                         .then(function (response) {
-                            var ticketClear = [];
-                            angular.forEach(response.data, function(ticket) {
-                                ticket.description = cleanString(ticket.description);
-                                ticketClear.push(ticket);
-                            });
-                            $scope.ticketsList = ticketClear;
-                            $scope.isLoaded = true;
-
+                            getTickets(response);
                         });
+                    } else if ($state.includes('favorites')) {
+                            $http.get(localBackend)
+                                .then(function(response) {
+                                    getTickets(response);
+                                })
+                    }
+                };
+
+                var getTickets = function (response) {
+                    var ticketClear = [];
+                    angular.forEach(response.data, function(ticket) {
+                        ticket.description = cleanString(ticket.description);
+                        ticketClear.push(ticket);
+                    });
+                    $scope.ticketsList = ticketClear;
+                    $scope.isLoaded = true;
                 };
 
                 $scope.reorder = function (field, typeList) {
@@ -106,6 +122,29 @@ angular.module("tickets")
 
 
                 $scope.init();
+
+                $scope.addToFavorites = function(favTicket) {
+                    console.log('added to favorites');
+                    var newFavTicket = angular.copy(favTicket);
+                    $http.post(localBackend, newFavTicket)
+                        .then(function (response) {
+                        })
+                };
+
+                $scope.removeFromFavorites = function(favTicket) {
+                    console.log('removed from favorites');
+                    $http.delete(localBackend + '/' + favTicket._id)
+                        .then(function (response) {
+                            loader();
+                        })
+                };
+                $scope.removeFromFavorites = function(favTicket) {
+                    console.log('removed from favorites');
+                    $http.delete(localBackend + '/' + favTicket._id)
+                        .then(function (response) {
+                            loader();
+                        })
+                };
             }
         }
     });
