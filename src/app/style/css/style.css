@@ -243,6 +243,10 @@ simple-calendar .events-list a:hover {
     margin-bottom: 0px;
 }
 
-.fb-login {
+.btn-facebook {
+    width:300px;
+    color:white;
+}
+.btn-facebook:hover, .btn-facebook:active, .btn-facebook:focus {
     color:white;
 }
