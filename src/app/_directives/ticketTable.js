@@ -13,7 +13,7 @@ angular.module("tickets")
                 var loader = function () {
                     //$http.get('http://localhost:8080/tickets-filter/app_dev.php/')
                     //$http.get('http://test.tickets-processor.infoshareaca.nazwa.pl/import')
-                    $http.get('null/data.json')
+                    $http.get('http://test.tickets-processor.infoshareaca.nazwa.pl/import')
                         .then(function (response) {
                             var ticketClear = [];
                             angular.forEach(response.data, function(ticket) {
@@ -87,7 +87,7 @@ angular.module("tickets")
 
                 $scope.events = [];
 
-                $http.get('null/data.json')
+                $http.get('http://test.tickets-processor.infoshareaca.nazwa.pl/import')
                     .success(function (response) {
                         angular.forEach(response, function (object) {
                             var date = randomDate(new Date(2015,10,26, 0, 0), new Date(2016, 1, 24, 0) );
