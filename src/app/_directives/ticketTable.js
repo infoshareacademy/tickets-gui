@@ -138,6 +138,13 @@ angular.module("tickets")
                             loader();
                         })
                 };
+                $scope.removeFromFavorites = function(favTicket) {
+                    console.log('removed from favorites');
+                    $http.delete(localBackend + '/' + favTicket._id)
+                        .then(function (response) {
+                            loader();
+                        })
+                };
             }
         }
     });
