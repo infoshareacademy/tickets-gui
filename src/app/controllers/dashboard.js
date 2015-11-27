@@ -8,9 +8,18 @@
  * Controller of tickets
  */
 angular.module('tickets')
-  .controller('DashboardCtrl', function($scope, $state, $http, $rootScope, $sce) {
+  .controller('DashboardCtrl', function($scope, $state, $http, $rootScope, $location) {
 
-    $scope.$state = $state;
+        $scope.$state = $state;
+
+        $scope.verify = function() {
+            if ( !$rootScope.fbUser ) {
+                $location.path('/login');
+                return false;
+            }
+
+        };
+        $scope.verify();
 
         $scope.synchronizeDb = function() {
         $scope.modalTxt = '<h4>Database synchronization started. </h4><p>Please be patient :)</p>';
@@ -22,8 +31,14 @@ angular.module('tickets')
             .error(function(err){
                 $scope.modalTxt = '<h4>Database synchronization failed. </h4><p>We are sorry.</p>';
             })
-      };
+        };
 
+        $scope.logout = function() {
+            $http.get('http://localhost:3000/signout')
+                .success(function(data) {
+
+                });
+        };
         $rootScope.$on('openEventModal', function(event, data){
             console.log(data);
             $scope.day = new Date(data.date);

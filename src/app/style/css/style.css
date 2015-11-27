@@ -224,3 +224,14 @@ simple-calendar .events-list a:hover {
     text-decoration: none;
     font-weight: bold;
 }
+
+
+
+/* LOGIN */
+.login-page .form-content .bottom-75 {
+    margin-bottom: 0px;
+}
+
+.fb-login {
+    color:white;
+}
