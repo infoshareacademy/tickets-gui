@@ -9,8 +9,8 @@
         <form role="form" class="bottom-75" ng-submit="submit(email, name)">
             <div class="table-form">
 
-                <h3>Sign up for newsletter</h3>
                 <div class="form-groups">
+                <h3>Sign up for newsletter</h3>
 
 
                     <div class="form-group">
@@ -20,13 +20,17 @@
                         <input type="text" ng-model="name" class="form-control input-lg" id="" placeholder="NAME">
                     </div>
 
-                </div>
-                <div class="button-container">
-                    <button type="submit" class="btn btn-default login"><img src="style/images/arrow.png" alt=""></button>
-                </div>
-                <div>
-                    <h2 ng-if="subscribeSuccess">Success - You add your email to newsletter list</h2>
+                    <h4 ng-if="subscribeMessage">{{subscribeMessage}}</h4>
 
+                <div class="subscribe-buttons">
+                <div class="button-container">
+                    <button ng-click="submit(email, name)" type="button" class="btn btn-default login"><img src="style/images/arrow.png" alt="">ADD</button>
+                </div>
+
+                <div class="button-container">
+                    <button ng-click="delete(email)" type="button" class="btn btn-default login2"><img src="style/images/arrow.png" alt="">DELETE</button>
+                </div>
+                </div>
                 </div>
             </div>
 
