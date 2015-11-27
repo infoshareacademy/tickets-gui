@@ -40,6 +40,12 @@ angular
                 url: '/favorites',
                 parent: 'dashboard',
                 templateUrl: '_views/dashboard/favorites.html'
+            })
+            .state('subscribe', {
+                url: '/subscribe',
+                parent: 'base',
+                templateUrl: '_views/subscribe.html',
+                controller: 'SubscribeCtrl'
             });
     }).directive('tooltip', function(){
         return {

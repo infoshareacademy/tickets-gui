@@ -69,7 +69,18 @@
 .snap-drawer .logout-btn:hover {
     background-color: #fff;
 }
+.snap-drawer .subscribe-btn:hover {
+    background-color: #fff;
+}
 .snap-drawer .logout-btn {
+    color:#888;
+    display: block;
+    padding: 5px;
+    margin: 20px;
+    background-color: #eee;
+    border: none;
+}
+.snap-drawer .subscribe-btn {
     color:#888;
     display: block;
     padding: 5px;
