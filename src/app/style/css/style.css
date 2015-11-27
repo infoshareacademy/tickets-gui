@@ -238,9 +238,19 @@ simple-calendar .events-list a:hover {
     text-decoration: none;
     font-weight: bold;
 }
+
 .login-page .form-content .table-form .button-container {
     display: table-cell;
     vertical-align: middle;
     width: 196px;
     text-align: center;
+}
+
+/* LOGIN */
+.login-page .form-content .bottom-75 {
+    margin-bottom: 0px;
+}
+
+.fb-login {
+    color:white;
 }

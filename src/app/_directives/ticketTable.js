@@ -103,6 +103,8 @@ angular.module("tickets")
                         console.log(err);
                     });
 
+
+
                 $scope.init();
             }
         }

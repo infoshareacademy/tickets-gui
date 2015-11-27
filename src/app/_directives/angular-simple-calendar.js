@@ -162,9 +162,14 @@ angular.module('500tech.simple-calendar', []).directive('simpleCalendar', functi
             $scope.eventsList.push(event);
           }
         });
-        console.log($scope.eventsList);
       };
-
+      $scope.openEventModal = function(event){
+        $scope.eventTxt = event;
+        $rootScope.$broadcast('openEventModal', $scope.eventTxt);
+      };
+      $scope.options.dateClick = function(){
+        $scope.eventsList = [];
+      };
       $scope.$watch('options.defaultDate', function() {
         calculateSelectedDate();
       });
@@ -174,6 +179,7 @@ angular.module('500tech.simple-calendar', []).directive('simpleCalendar', functi
       $rootScope.$on('updateCalendarEvents', function(){
         calculateWeeks();
       });
+
     }]
   }
 });
