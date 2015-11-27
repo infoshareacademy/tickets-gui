@@ -69,7 +69,18 @@
 .snap-drawer .logout-btn:hover {
     background-color: #fff;
 }
+.snap-drawer .subscribe-btn:hover {
+    background-color: #fff;
+}
 .snap-drawer .logout-btn {
+    color:#888;
+    display: block;
+    padding: 5px;
+    margin: 20px;
+    background-color: #eee;
+    border: none;
+}
+.snap-drawer .subscribe-btn {
     color:#888;
     display: block;
     padding: 5px;
@@ -152,4 +163,86 @@
 .modal-dialog {
     color:#262626;
     font-size: 16px;
+}
+
+/* C A L E N D A R*/
+simple-calendar .current-month {
+    color:#A2A0A5;
+    font-weight: bold;
+    font-size: 26px;
+}
+
+simple-calendar .move-month.prev-month {
+    color:#FE7B5F;
+    font-size: 26px;
+}
+simple-calendar .move-month.next-month {
+    color:#FE7B5F;
+    font-size: 26px;
+}
+simple-calendar .weekday {
+    color:#000000;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+simple-calendar .day-number {
+    color:#000000;
+
+}
+simple-calendar .day-number span {
+    text-align: center;
+    display: block;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    border-radius: 12px;
+    margin: auto;
+}
+simple-calendar .event .day-number span {
+    background-color: #FE7B5F;
+    color: white;
+}
+simple-calendar .day.event {
+    background-color: white;
+}
+simple-calendar .calendar {
+    border: none;
+}
+simple-calendar .day {
+    border: none;
+}
+simple-calendar .events-list {
+    background-color: #3E454D;
+    color: #6A7682;
+    min-height: 300px;
+    padding-top: 10px;
+}
+simple-calendar .events-list ul {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+}
+simple-calendar h4 {
+    color: #FE7B5F;
+    text-align: center;
+    font-weight: bold;
+}
+simple-calendar .events-list li {
+    padding-top: 10px;
+}
+simple-calendar .events-list a:hover {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+
+/* LOGIN */
+.login-page .form-content .bottom-75 {
+    margin-bottom: 0px;
+}
+
+.fb-login {
+    color:white;
 }

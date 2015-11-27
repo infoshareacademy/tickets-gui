@@ -8,7 +8,7 @@ angular.module("tickets")
             templateUrl: '_directives/ticket-table.html',
             transclude: true,
             scope: {},
-            controller: function ($scope, $state, $http) {
+            controller: function ($scope, $rootScope, $state, $http) {
 
                 var developDbUrl = 'http://localhost:8080/tickets-filter/app_dev.php/';
                 var mockedDb = 'null/data.json';
@@ -87,6 +87,39 @@ angular.module("tickets")
                     }
                     return temp.trim();
                 };
+
+                $scope.calendarOptions = {
+                    defaultDate: "2015-11-26",
+                    minDate: new Date(),
+                    maxDate: new Date([2020, 12, 31]),
+                    dayNamesLength: 3, // How to display weekdays (1 for "M", 2 for "Mo", 3 for "Mon"; 9 will show full day names; default is 1)
+                    eventClick: $scope.eventClick,
+                    dateClick: $scope.dateClick
+                };
+
+                function randomDate(start, end) {
+                    return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+                }
+
+                $scope.events = [];
+
+                $http.get('http://test.tickets-processor.infoshareaca.nazwa.pl/import')
+                    .success(function (response) {
+                        angular.forEach(response, function (object) {
+                            var date = randomDate(new Date(2015,10,26, 0, 0), new Date(2016, 1, 24, 0) );
+                            $scope.events.push({
+                                title: object.title,
+                                date: date,
+                                eventUrl: object.auctionUrl
+                            })
+                        });
+                        $rootScope.$broadcast('updateCalendarEvents', true);
+                    })
+                    .error(function (err) {
+                        console.log(err);
+                    });
+
+
 
                 $scope.init();
 

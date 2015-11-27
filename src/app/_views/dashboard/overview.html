@@ -10,6 +10,7 @@
 					porta pretium est, vel aliquet quam auctor in. Nullam
 					massa est, ultrices id luctus id, vulputate quis lacus.</p>
 				<a type="button" class="btn btn-default logout-btn" ui-sref="login"><i class="glyphicon glyphicon-log-out"> </i> Logout</a>
+				<a type="button" class="btn btn-default subscribe-btn" ui-sref="subscribe"><i class="fa fa-envelope"> </i> Subscribe</a>
 			</div>
 
 		</div>
@@ -31,7 +32,7 @@
 				   ui-sref="favorites"><i class="glyphicon glyphicon-heart"></i></a>
 
 				<a href="" type="button" class="btn btn-default btn-sm"
-				   data-toggle="modal" data-target=".bs-example-modal-sm"
+				   data-toggle="modal" data-target=".modal"
 				   ng-click="synchronizeDb()"
 				   data-toggle="tooltip" data-placement="bottom" title="Synchronize" tooltip
 				   ng-mouseenter="hover = true"
@@ -64,11 +65,12 @@
 </div>
 
 
-<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+
+<div class="modal fade " tabindex="-1" role="dialog" aria-labelledby="AlertsModal">
 	<div class="modal-dialog modal-sm">
 		<div class="modal-content">
 			<div class="modal-body">
-				<p>{{sync}}</p>
+				<div ng-bind-html="modalTxt | renderHTMLCorrectly"></div>
 			</div>
 		</div>
 	</div>

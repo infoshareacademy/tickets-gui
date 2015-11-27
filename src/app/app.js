@@ -5,7 +5,8 @@ angular
     .module('tickets', [
         'ui.router',
         'snap',
-        'ngAnimate'
+        'ngAnimate',
+        '500tech.simple-calendar'
     ])
     .config(function($stateProvider, $urlRouterProvider) {
 
@@ -39,6 +40,12 @@ angular
                 url: '/favorites',
                 parent: 'dashboard',
                 templateUrl: '_views/dashboard/favorites.html'
+            })
+            .state('subscribe', {
+                url: '/subscribe',
+                parent: 'base',
+                templateUrl: '_views/subscribe.html',
+                controller: 'SubscribeCtrl'
             });
     }).directive('tooltip', function(){
         return {
@@ -53,4 +60,10 @@ angular
                 });
             }
         };
+    }).filter('renderHTMLCorrectly', function($sce)
+    {
+        return function(stringToParse)
+        {
+            return $sce.trustAsHtml(stringToParse);
+        }
     });
